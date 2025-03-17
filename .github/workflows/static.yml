@@ -40,6 +40,8 @@ jobs:
         run: |
           cd frontend
           npm run build
+          git config --global user.name "kathy20316"
+          git config --global user.email "kathy20316@gmail.com"
           git add dist
           git commit -m "Add dist folder"
           git push origin main

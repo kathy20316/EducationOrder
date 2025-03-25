@@ -106,3 +106,24 @@ body {
   #chatbot-send:hover {
     background-color: #a8e026;
   }
+  
+  /* Style for the button in top-right corner */
+.top-right-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none; /* Ensure no underlining */
+  display: inline-block; /* Align the button properly */
+}
+
+.top-right-btn:hover {
+  background-color: #45a049;
+}

@@ -18,7 +18,7 @@
 
       <!-- navigation links -->
       <nav>
-        <a href="/EducationOrder/profile/" aria-label="Go to user profile">Profile</a>
+        <a href="#profile" aria-label="Go to user profile">Profile</a>
       </nav>
       
       <section id="about">
@@ -181,5 +181,25 @@
         }
       });
     </script>
+
+
+    <script>
+      // Simple hash router
+      function navigate() {
+          const hash = window.location.hash.substring(1); // Remove the '#'
+
+          if (hash === 'profile') {
+              window.location.href = '/EducationOrder/profile/';
+          } else {
+              // Default: Show main content (e.g., hide profile)
+          }
+      }
+
+      // Call on load and on hash change
+      window.onload = navigate;
+      window.addEventListener('hashchange', navigate);
+    </script>
+
+
   </body>
 </html>

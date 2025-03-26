@@ -17,7 +17,7 @@ cd EducationOrder
 # Create a virtual environment and install dependencies for the project to separate from system-wide Python installations
 ```
 python3 -m venv venv
-source venv/bin/activate    # On Windows, use: venv\Scripts\activate, check "which python3" to see if the virtual environment is set up
+source .venv/bin/activate    # On Windows, use: venv\Scripts\activate, check "which python3" to see if the virtual environment is set up
                             # Now we can use "python -V" instead of "python3 -V" when we activate the virtual environment
 pip install django          # check with "pip list", "python -m django --version"
 ```

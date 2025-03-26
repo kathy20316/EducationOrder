@@ -1,0 +1,64 @@
+Django Tutorial for Beginners – Build Powerful Backends:
+https://www.youtube.com/watch?v=rHux0gMZ3Eg
+
+Connecting to the Database
+https://docs.djangoproject.com/en/5.1/ref/databases/#mysql-notes
+https://www.digitalocean.com/community/tutorials/how-to-create-a-django-app-and-connect-it-to-a-database
+
+- Run virtual environment:
+source .venv/bin/activate
+
+- Install pkg-config and MySQL development libraries.
+    + Install Homebrew (if not installed)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    +  Install MySQL & pkg-config
+brew install mysql
+brew services start mysql
+
+``` (To remove) 
+brew services stop mysql
+brew uninstall mysql
+```
+
+brew install pkg-config
+
+CONNECT MYSQL WITH DJANGO PROJECT
+1. Install MySQL Client for Django in venv
+source .venv/bin/activate
+pip install pymysql (https://pypi.org/project/PyMySQL/) - To remove: pip uninstall pymysql
+pip show pymysql
+
+
+
+pip install mysqlclient
+Then, add this inside the __init__.py in the Django project directory:
+import pymysql
+pymysql.install_as_MySQLdb()
+
+2. Update settings.py
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'education_order_db',  # Your MySQL database name
+        'USER': 'root',                # Your MySQL username
+        'PASSWORD': 'yourpassword',    # Your MySQL password
+        'HOST': 'localhost',           # Change if using a remote DB
+        'PORT': '3306',                # MySQL default port
+        'OPTIONS': {
+            'charset': 'utf8mb4',      # Ensures support for special characters
+        },
+    }
+}
+
+3. Create Database in MySQL
+- Log into MySQL and create the database:
+
+CREATE DATABASE education_order_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+4. Run Migrations
+python manage.py makemigrations
+python manage.py migrate
+
+5. Test Connection
+python manage.py runserver
+

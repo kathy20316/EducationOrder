@@ -150,7 +150,13 @@
             messagesDiv.removeChild(loadingMessage);
             // Assume the API returns generated content within the "candidates" array.
             // Adjust based on the official response structure.
-            const generatedText = data.candidates && data.candidates.length > 0 ? data.candidates[0].output : "No response received.";
+            const generatedText = data.candidates && data.candidates.length > 0 && 
+                data.candidates[0].content && 
+                data.candidates[0].content.parts &&
+                data.candidates[0].content.parts.length > 0
+                ? data.candidates[0].content.parts[0].text
+                : "No response received.";
+            // Display AI response
             const botMessage = document.createElement('div');
             botMessage.style.textAlign = 'left';
             botMessage.style.margin = '5px';

@@ -5,6 +5,15 @@ Connecting to the Database
 https://docs.djangoproject.com/en/5.1/ref/databases/#mysql-notes
 https://www.digitalocean.com/community/tutorials/how-to-create-a-django-app-and-connect-it-to-a-database
 
+How to Connect MySQL database with Django Project
+https://www.youtube.com/watch?v=5g_xIwxLSJk&t=812s
+
+Python Django Full Course for Beginners | Complete All-in-One Tutorial | 3 Hours
+https://www.youtube.com/watch?v=Rp5vd34d-z4
+- Interact with Django ORM at 1:03:46
+- Register models to admin at 1:09:47 (add data using admin site)
+
+
 - Run virtual environment:
 source .venv/bin/activate
 
@@ -82,6 +91,15 @@ python manage.py makemigrations orders --empty --name seed_data
 - Apply the migrations
 python manage.py migrate
 
+- Make connections between MySQL and Django
+pipenv install mysqlclient
+pipenv install pymysql
+
+- Check the data in MySQL
+sh> mysql -u root -p all_orders_db
+sql> SELECT * FROM orders_order;
+sql> EXIT
+
 
 
 * Seeding Data in MySQL and Displaying it in MVC Pattern
@@ -98,6 +116,7 @@ Step 3: Fetch Data in the Controller
 
 
 Step 3: Display Data in the View
+
 Step 4: Implement Pagination in Django
 Step 5: Implement Search in Django
 Step 6: Implement Sorting in Django

@@ -2,7 +2,7 @@
 
 from django.shortcuts import render
 from django.http import HttpResponse
-from orders.models import Order
+from .models import Order
 
 def view_all_orders(request):
     orders = Order.objects.all()

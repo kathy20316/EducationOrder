@@ -30,12 +30,12 @@
     <tbody>
         {% for order in orders %}
         <tr>
-            <td>{{ order.order_id }}</td>
-            <td>{{ order.order_item }}</td>
-            <td>{{ order.order_description }}</td>
-            <td>{{ order.order_date }}</td>
-            <td>{{ order.student.username }}</td>
-            <td>{{ order.tutor.username }}</td>
+            <td>{{ order.orderId }}</td>
+            <td>{{ order.orderItem }}</td>
+            <td>{{ order.orderDescription }}</td>
+            <td>{{ order.orderDate }}</td>
+            <td>{{ order.student }}</td>
+            <td>{{ order.tutor }}</td>
             <td>{{ order.subject }}</td>
             <td>{{ order.status }}</td>
             <td>${{ order.price }}</td>

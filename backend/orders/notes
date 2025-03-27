@@ -26,6 +26,7 @@ CONNECT MYSQL WITH DJANGO PROJECT
 1. Install MySQL Client for Django in venv
 source .venv/bin/activate
 pip install pymysql (https://pypi.org/project/PyMySQL/) - To remove: pip uninstall pymysql
+OR pipenv install pymysql
 pip show pymysql
 
 
@@ -62,3 +63,49 @@ python manage.py migrate
 5. Test Connection
 python manage.py runserver
 
+
+### SEEDING DATA
+- create seed_data.sql
+
+sh> mysql -u root -p
+sql> CREATE DATABASE all_orders_db;
+SHOW DATABASES;
+EXIT
+
+1. Create a Django Model for the Orders Table
+In your Django app's models.py file:
+
+2. Create a Data Migration to Insert Seed Data
+python manage.py makemigrations
+python manage.py makemigrations orders --empty --name seed_data
+- Add the data insertion in the migration file
+- Apply the migrations
+python manage.py migrate
+
+
+
+* Seeding Data in MySQL and Displaying it in MVC Pattern
+Step 1: Seed Data into MySQL
+Option 1: Manual Seeding via SQL Script
+execute  using sh> mysql -u root -p all_orders_db  < orders/seed_data.sql
+Option 2: Seed Data via Django models
+python manage.py makemigrations
+python manage.py migrate
+
+Step 2: Fetch Data from MySQL in the Model
+
+Step 3: Fetch Data in the Controller
+
+
+Step 3: Display Data in the View
+Step 4: Implement Pagination in Django
+Step 5: Implement Search in Django
+Step 6: Implement Sorting in Django
+Step 7: Implement Filtering in Django
+Step 8: Implement CRUD Operations in Django
+Step 9: Implement Authentication in Django
+Step 10: Implement Authorization in Django
+Step 11: Implement User Roles in Django
+Step 12: Implement Permissions in Django
+Step 13: Implement User Registration in Django
+Step 14: Implement User Login in Django

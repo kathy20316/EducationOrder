@@ -31,14 +31,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'orders',
+    'debug_toolbar',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'orders',
-    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -82,27 +82,16 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.db.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     },
-    
-# }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'all_orders_db',  
-#         'USER': 'root',                
-#         'PASSWORD': 'password123',   
-#         'HOST': '127.0.0.1',           
-#         'PORT': '3306',                # MySQL default port
-#         'OPTIONS': {
-#             'charset': 'utf8mb4',      # Ensures support for special characters
-#         },
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',  # Use 'mysql' engine
+        'NAME': 'all_orders_db',  # Replace with your actual database name
+        'USER': 'root',  # Replace with your database username
+        'PASSWORD': 'password123',  # Replace with your database password
+        'HOST': 'localhost',  # Set to the database host, e.g., 'localhost' for local setup
+        'PORT': '3306',  # Set to your MySQL port (default: 3306)
+    }
+}
 
 
 # Password validation

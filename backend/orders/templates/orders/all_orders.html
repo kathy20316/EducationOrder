@@ -1,0 +1,49 @@
+<!-- View: HTML page to display orders -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View All Orders</title>
+</head>
+<body>
+    
+{% extends "base.html" %}
+
+{% block content %}
+<h2>All Orders</h2>
+<table border="1" padding="5px">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Order Item</th>
+            <th>Order Description</th>
+            <th>Order Date</th>
+            <th>Student</th>
+            <th>Tutor</th>
+            <th>Subject</th>
+            <th>Status</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.orderId }}</td>
+            <td>{{ order.orderItem }}</td>
+            <td>{{ order.orderDescription }}</td>
+            <td>{{ order.orderDate }}</td>
+            <td>{{ order.student }}</td>
+            <td>{{ order.tutor }}</td>
+            <td>{{ order.subject }}</td>
+            <td>{{ order.status }}</td>
+            <td>${{ order.price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+</body>
+</html>
+

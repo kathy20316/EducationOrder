@@ -29,3 +29,8 @@ class ViewAllOrdersTest(TestCase):
         self.assertContains(response, 'English Essay Assistance')
         self.assertContains(response, 'Completed')
         self.assertContains(response, 'Pending')
+
+    def test_order_count(self):
+        # Test the number of orders created
+        order_count = Order.objects.count()
+        self.assertEqual(order_count, 2)  # Two orders were created as above

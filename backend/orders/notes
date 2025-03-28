@@ -72,6 +72,11 @@ python manage.py migrate
 5. Test Connection
 python manage.py runserver
 
+6. Run the test
+- Create the test in tests.py
+- Run the test
+python manage.py test orders.tests
+
 
 ### SEEDING DATA
 - create seed_data.sql
@@ -99,7 +104,6 @@ pipenv install pymysql
 sh> mysql -u root -p all_orders_db
 sql> SELECT * FROM orders_order;
 sql> EXIT
-
 
 
 * Seeding Data in MySQL and Displaying it in MVC Pattern

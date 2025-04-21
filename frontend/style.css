@@ -9,9 +9,9 @@ body {
     max-width: 800px;
     margin: 0 auto;
   }
-  header {
-    background: linear-gradient(to right, orange, green, blue);
-    color: white;
+  header, footer {
+    background: linear-gradient(to right, rgb(225, 231, 114), rgb(111, 227, 111), rgb(77, 64, 221));
+    color: rgb(19, 6, 118);
     padding: 1rem;
     border-radius: 10px;
     text-align: center;
@@ -41,13 +41,13 @@ body {
     color: #030003;
     margin-top: 0;
   }
-  footer {
+  /* footer {
     background: linear-gradient(to right, blue, green, orange);
     color: white;
     padding: 1rem;
     border-radius: 10px;
     text-align: center;
-  }
+  } */
   a {
     color: #3a33ff;
     text-decoration: none;

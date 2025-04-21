@@ -52,6 +52,7 @@ npm create vite@latest  # projectName: frontend, framework: React, variant: Java
 cd frontend
 npm install
 npm run dev
+
 ```
 Using Vite to create a React app
 https://dev.to/ag2byte/create-react-app-is-officially-dead-h7o 

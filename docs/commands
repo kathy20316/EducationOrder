@@ -87,6 +87,10 @@ python3 -m ensurepip
     git merge <branch-name>
     git push origin main
 
+For deployment (before pushing to Github), the following commands can be used:
+    npm run build
+    npm run deploy
+
 * keep your changes, commit them before rebasing
     git add .
     git commit -m "commit message"

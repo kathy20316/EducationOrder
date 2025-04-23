@@ -132,3 +132,50 @@ Step 11: Implement User Roles in Django
 Step 12: Implement Permissions in Django
 Step 13: Implement User Registration in Django
 Step 14: Implement User Login in Django
+Step 15: Implement User Logout in Django
+Step 16: Implement User Profile in Django
+Step 17: Implement User Profile Update in Django
+Step 18: Implement User Profile Delete in Django
+Step 19: Implement User Profile Picture in Django
+Step 20: Implement User Profile Picture Update in Django
+Step 21: Implement User Profile Picture Delete in Django
+Step 22: Implement User Profile Picture Upload in Django
+Step 23: Implement User Profile Picture Download in Django
+Step 24: Implement User Profile Picture View in Django
+Step 25: Implement User Profile Picture List in Django
+Step 26: Implement User Profile Picture Search in Django
+Step 27: Implement User Profile Picture Sort in Django
+Step 28: Implement User Profile Picture Filter in Django
+Step 29: Implement User Profile Picture Pagination in Django
+Step 30: Implement User Profile Picture CRUD in Django
+Step 31: Implement User Profile Picture Authentication in Django
+Step 32: Implement User Profile Picture Authorization in Django
+Step 33: Implement User Profile Picture Roles in Django
+Step 34: Implement User Profile Picture Permissions in Django
+Step 35: Implement User Profile Picture Registration in Django
+Step 36: Implement User Profile Picture Login in Django
+Step 37: Implement User Profile Picture Logout in Django
+Step 38: Implement User Profile Picture Profile in django
+
+
+Connect Django Backend on Azure to GitHub (CI/CD)
+1. Push Your Django Project to GitHub
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/your-username/your-django-repo.git
+git push -u origin main
+
+2. Create an Azure Web App
+az login
+az webapp up --name your-django-backend-app --runtime "PYTHON|3.10" --location "East US"
+
+3. Set up Deployment from Github
+https://portal.azure.com/#home
+Navigate to your Web App
+    On the left panel, go to Deployment Center
+Choose:
+    Source: GitHub
+    Build provider: GitHub Actions
+    Repository & Branch: Select your repo and branch
+Azure will auto-generate a GitHub Actions workflow for Django.

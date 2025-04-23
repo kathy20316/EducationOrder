@@ -73,3 +73,8 @@ npm test
 
 The project uses GitHub Actions for CI/CD.
 Push to main or develop branches to trigger deployment workflows.​​
+
+
+Deploy Django React app on Microsoft Azure
+https://www.youtube.com/playlist?list=PLmEKHA8iFrmB2hTxR3xfQ_WqUjUFHp_8-
+

@@ -38,6 +38,10 @@ def view_all_orders(request):
         for order in orders
     ]
     return JsonResponse({"orders": orders_data})
+
+
+def home(request):
+    return HttpResponse("Welcome to the Education Order Project!")
     
 
 

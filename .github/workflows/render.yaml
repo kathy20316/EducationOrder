@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: django-backend
-    env: python
-    buildCommand: "./build.sh"
-    startCommand: "gunicorn yourproject.wsgi:application"
-    envVars:
-      - key: DJANGO_SETTINGS_MODULE
-        value: backend.settings

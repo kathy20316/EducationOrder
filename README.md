@@ -2,6 +2,8 @@
 
 ## Disclaimer
 _this document is not indicative of the final README file. More will be added as the project progresses_
+For the current version of this project, a static version is available through the following link:
+https://kathy20316.github.io/EducationOrder/
 
 ## Overview
 This software aims to provide a new study environment  where students can engage in one on one conversations with educators. It will cover a wide range of subjects such as Math, English, Spanish, Chinese, and more. The platform provides a secure, flexible, and affordable learning experience while allowing educators to monetize their expertise by offering tutoring services.

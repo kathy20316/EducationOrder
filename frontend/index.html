@@ -111,7 +111,8 @@
       </section>
     </div> <!-- End Home Content Wrapper -->
 
-    <!-- Profile Page Content Wrapper (Initially hidden) -->
+    
+    <!-- Profile Page Content Wrapper (Initially hidden) Encho feature-->
     <div id="profile-content" style="display: none;">
       <!-- Profile Content Starts Here -->
       <div id="profile-root"> <!-- Added wrapper for profile content -->
@@ -367,7 +368,7 @@
     }
   </script>
 
-  <!-- Profile Page Script -->
+  <!-- Profile Page Script Encho feature-->
   <script>
     // script.js - Changed initial PFP state (Profile Page Logic)
 
@@ -473,7 +474,7 @@
         console.log("Save Complete. Exited Edit Mode (Profile).");
     }
 
-    // --- Helper & Validation Functions ---
+    // --- Helper & Validation Functions Encho Security (out of bounds) ---
     function wordCount(str) { if (!str || typeof str !== 'string' || str.trim() === "") return 0; const matches = str.match(/\S+/g); return matches ? matches.length : 0; }
     function isValidUsername(username) { if (!username || typeof username !== 'string') return false; const invalid = /[!@#$%^&*()+\-=\[\]{};':"\\|,.<>\/?\s]/; return !invalid.test(username); }
     function formatDateKey(year, month, day) { return `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`; }
@@ -506,7 +507,7 @@
         }
     }
     function triggerFileInput() { console.log("Triggering file input click (Profile)"); if(profilePictureInput) profilePictureInput.click(); }
-    function handleFile(file) {
+    function handleFile(file) {//Encho security (only image files)
         if (!file || !file.type.startsWith('image/')) { console.warn("handleFile (Profile): Invalid file type or no file.", file); alert("Please select/drop a valid image file (e.g., JPG, PNG, GIF)."); closePfpModal(); return; }
         console.log("Handling valid file (Profile):", file.name);
         const reader = new FileReader();

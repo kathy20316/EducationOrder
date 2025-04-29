@@ -34,15 +34,22 @@ ALLOWED_HOSTS = ['educationorder-bke8f7exgybnbdg6.centralus-01.azurewebsites.net
 # Application definition
 
 INSTALLED_APPS = [
-    'orders',
-    'debug_toolbar',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Third party apps
+    'rest_framework',
+    'rest_framework.authtoken',  # Added for token authentication
     'corsheaders',
+    'drf_yasg',  # Added for Swagger API documentation
+    # Custom apps
+    'users',
+    'courses',
+    'sessions.apps.SessionsConfig',  # Use the app config with the custom label
+    'payments',
 ]
 
 MIDDLEWARE = [
@@ -98,6 +105,16 @@ DATABASES = {
     }
 }
 
+# Custom user model
+AUTH_USER_MODEL = 'users.User'
+
+# CORS settings
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+
+# Media files configuration
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -140,4 +157,3 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOW_ALL_ORIGINS = True

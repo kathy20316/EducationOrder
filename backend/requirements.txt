@@ -13,7 +13,7 @@ mysqlclient==2.2.7
 packaging==24.2
 pipenv==2024.4.1
 platformdirs==4.3.7
-psycopg2==2.9.10
+# psycopg2==2.9.10
 PyMySQL==1.1.1
 requests==2.32.3
 setuptools==78.0.2
@@ -21,3 +21,4 @@ sqlparse==0.5.3
 urllib3==2.3.0
 virtualenv==20.29.3
 whitenoise==6.9.0
+drf-yasg==1.21.10

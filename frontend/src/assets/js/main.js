@@ -577,6 +577,7 @@ authRadioRegistration && authRadioRegistration.addEventListener('click', () => {
     document.querySelector('.registration-content').style.display = 'block'
 })
 
+// dang nhap
 document.querySelector('.login-content form')?.addEventListener('submit', (e) => {
     e.preventDefault()
     e.stopPropagation()
@@ -602,7 +603,7 @@ document.querySelector('.login-content form')?.addEventListener('submit', (e) =>
     })
 })
 
-
+// tao tai khoan
 document.querySelector('.registration-content form').addEventListener('submit', (e) => {
     e.preventDefault()
     e.stopPropagation()

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search | Education Order</title>
+    <link rel="stylesheet" type="text/css" href="assets/style/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Search Tutors</h1>
+            <p>Find expert educators by subject, name, or availability.</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab" onclick="window.location.href='index.html'">Home</button>
+            <button class="tab" onclick="window.location.href='Profile.html'">Profile</button>
+            <button class="tab" onclick="window.location.pathname = '/orders'">Orders</button>
+            <button class="tab" onclick="window.location.href='index.html#auth-content'">Login</button>
+            <button class="tab active">Search</button>
+            <button class="tab" id="MyTutors-tab" onclick = "window.location.href = '/MyTutors'">MyTutors</button>
+        </div>
+
+        <section id="search-section">
+            <h2>Search for Educators</h2>
+            <form id="search-form">
+                <input type="text" placeholder="Search by subject, name..." name="search" />
+                <select name="subject">
+                    <option value="">All Subjects</option>
+                    <option value="Math">Mathematics</option>
+                    <option value="English">English</option>
+                    <option value="Science">Science</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="Chinese">Chinese</option>
+                    
+                </select>
+                <button type="submit">Search</button>
+            </form>
+
+            <div id="search-results">
+                <p>Search results will appear here...</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 Education Order. All rights reserved.</p>
+            <p>Contact: support@educationorder.com</p>
+        </footer>
+    </div>
+    <script>
+        const tutors = [
+            { name: "Alice Johnson", subject: "Math", rating: 4.8 },
+            { name: "Bob Smith", subject: "English", rating: 4.6 },
+            { name: "Carlos Ramirez", subject: "Computer Science", rating: 4.9 },
+            { name: "Diana Lee", subject: "Science", rating: 4.7 },
+            { name: "Eva Zhang", subject: "Math", rating: 4.5 },
+            { name: "Frank O'Malley", subject: "English", rating: 4.3 },
+            { name: "Gina Kim", subject: "Computer Science", rating: 4.9 },
+            { name: "Hassan Yusuf", subject: "Science", rating: 4.2 },
+            { name: "Isabelle Tran", subject: "Chinese", rating: 4.6 },
+            { name: "Javier Martinez", subject: "Spanish", rating: 4.8 },
+            { name: "Kaitlyn Nguyen", subject: "Math", rating: 4.9 },
+            { name: "Leo Carter", subject: "English", rating: 4.1 },
+            { name: "Maria Lopez", subject: "Computer Science", rating: 4.7 },
+            { name: "Nathan Chen", subject: "Math", rating: 4.3 },
+            { name: "Olivia Brown", subject: "Science", rating: 4.4 },
+            { name: "Peter Gomez", subject: "Spanish", rating: 4.5 },
+            { name: "Queenie Zhao", subject: "Chinese", rating: 4.8 },
+            { name: "Ryan Adams", subject: "English", rating: 4.2 },
+            { name: "Sophia Patel", subject: "Math", rating: 4.6 },
+            { name: "Tomoko Yamada", subject: "Science", rating: 4.9 }
+        ];
+
+        function selectTutor(tutorJSON) {
+            const selected = JSON.parse(decodeURIComponent(tutorJSON));
+            let savedTutors = JSON.parse(localStorage.getItem('selectedTutors')) || [];
+
+            const alreadyAdded = savedTutors.some(t => t.name === selected.name && t.subject === selected.subject);
+            if (!alreadyAdded) {
+                savedTutors.push(selected);
+                localStorage.setItem('selectedTutors', JSON.stringify(savedTutors));
+                alert("You selected " + selected.name + " (" + selected.subject + ")");
+            } else {
+                alert(selected.name + " is already in your selected list.");
+            }
+        }
+
+        document.getElementById('search-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const query = this.search.value.toLowerCase();
+            const subject = this.subject.value;
+
+            const results = tutors.filter(tutor =>
+            (subject === "" || tutor.subject === subject) &&
+                (query === "" || tutor.name.toLowerCase().includes(query))
+            );
+
+            const resultsDiv = document.getElementById('search-results');
+            resultsDiv.innerHTML = results.length
+                ? results.map((tutor) => `
+                    <div class="result">
+                        <h3>${tutor.name}</h3>
+                        <p>Subject: ${tutor.subject}</p>
+                        <p>Rating: ${tutor.rating}</p>
+                        <button onclick="selectTutor('${encodeURIComponent(JSON.stringify(tutor))}')">Select</button>
+                    </div>
+                `).join('')
+                : "<p>No tutors found matching your criteria.</p>";
+        });
+    </script>
+</body>
+</html>

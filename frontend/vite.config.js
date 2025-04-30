@@ -4,7 +4,7 @@ import { defineConfig } from 'vite';
 // const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
-    base: 'EducationOrder',
+  base: '',
   root: './src',
   build: {
     outDir: "../dist",

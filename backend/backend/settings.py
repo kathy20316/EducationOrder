@@ -17,6 +17,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 STATIC_URL = '/static/'
+# STATICFILES_DIRS = [BASE_DIR, 'static']  # ✅ Required for development
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # ✅ Required for collectstatic
 
 # Quick-start development settings - unsuitable for production
@@ -98,10 +99,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # Use 'mysql' engine
         'NAME': 'all_orders_db',  # Replace with your actual database name
-        'USER': 'root',  # Replace with your database username
-        'PASSWORD': 'password123',  # Replace with your database password
-        'HOST': 'localhost',  # Set to the database host, e.g., 'localhost' for local setup
+        'USER': 'chinguyen',  # Replace with your database username
+        'PASSWORD': 'BuildCoolStuff01!',  # Replace with your database password
+        'HOST': 'django-education-mysql.mysql.database.azure.com',  # Set to the database host, e.g., 'localhost' for local setup, '..azure..' for clouding database
         'PORT': '3306',  # Set to your MySQL port (default: 3306)
+        'OPTIONS': {
+            'ssl': {'check_hostname': False, 'verify_cert': False},  # Disable SSL verification
+        }
     }
 }
 

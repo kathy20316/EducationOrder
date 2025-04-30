@@ -1,15 +1,16 @@
 <!-- View: HTML page to display orders -->
-
+{% extends "base.html" %}
+<!-- Load static files so that Django knows the use the % static % tag. -->
+{% load static %} 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View All Orders</title>
+    <link rel="stylesheet" href="{% static 'orders/orders.css' %}">
 </head>
 <body>
-    
-{% extends "base.html" %}
 
 {% block content %}
 <h2>All Orders</h2>

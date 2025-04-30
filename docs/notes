@@ -179,3 +179,9 @@ Choose:
     Build provider: GitHub Actions
     Repository & Branch: Select your repo and branch
 Azure will auto-generate a GitHub Actions workflow for Django.
+
+4. Migrate MySQL database to Microsoft Azure cloud service
+https://www.youtube.com/watch?v=uxSDpZnFa18
+- Create a new Azure MySQL database
+- Open MySQL Workbench and migrate
+Database tab -> Migration Wizard

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Tutors | Education Order</title>
+    <link rel="stylesheet" type="text/css" href="assets/style/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>My Selected Tutors</h1>
+            <p>Here are the tutors you have selected.</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab" onclick="window.location.href='index.html'">Home</button>
+            <button class="tab" onclick="window.location.href='Profile.html'">Profile</button>
+            <button class="tab" onclick="window.location.pathname = '/orders'">Orders</button>
+            <button class="tab" onclick="window.location.href='index.html#auth-content'">Login</button>
+            <button class="tab" onclick="window.location.href='Search.html'">Search</button>
+            <button class="tab active">My Tutors</button>
+        </div>
+
+        <section id="my-tutors-section">
+            <h2>My Selected Tutors</h2>
+            <div id="my-tutors-list">
+                <p>Loading your selected tutors...</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 Education Order. All rights reserved.</p>
+            <p>Contact: support@educationorder.com</p>
+        </footer>
+    </div>
+
+    <script>
+        function loadSelectedTutors() {
+            const savedTutors = JSON.parse(localStorage.getItem('selectedTutors')) || [];
+            const tutorsListDiv = document.getElementById('my-tutors-list');
+
+            if (savedTutors.length === 0) {
+                tutorsListDiv.innerHTML = "<p>You have not selected any tutors yet.</p>";
+                return;
+            }
+
+            tutorsListDiv.innerHTML = savedTutors.map(tutor => `
+                <div class="selected-tutor">
+                    <h3>${tutor.name}</h3>
+                    <p>Subject: ${tutor.subject}</p>
+                    <p>Rating: ${tutor.rating}</p>
+                </div>
+            `).join('');
+        }
+
+        window.onload = loadSelectedTutors;
+    </script>
+    <script>
+        function loadSelectedTutors() {
+            const savedTutors = JSON.parse(localStorage.getItem('selectedTutors')) || [];
+            const tutorsListDiv = document.getElementById('my-tutors-list');
+    
+            if (savedTutors.length === 0) {
+                tutorsListDiv.innerHTML = "<p>You have not selected any tutors yet.</p>";
+                return;
+            }
+    
+            tutorsListDiv.innerHTML = savedTutors.map((tutor, index) => `
+                <div class="selected-tutor">
+                    <h3>${tutor.name}</h3>
+                    <p>Subject: ${tutor.subject}</p>
+                    <p>Rating: ${tutor.rating}</p>
+                    <button onclick="removeTutor(${index})">Remove</button>
+                </div>
+            `).join('');
+        }
+    
+        function removeTutor(index) {
+            const savedTutors = JSON.parse(localStorage.getItem('selectedTutors')) || [];
+            savedTutors.splice(index, 1);
+            localStorage.setItem('selectedTutors', JSON.stringify(savedTutors));
+            loadSelectedTutors();
+        }
+    
+        window.onload = loadSelectedTutors;
+    </script>
+    
+</body>
+</html>

@@ -21,6 +21,7 @@
             <button class="tab" onclick="window.location.pathname = '/orders'">Orders</button>
             <button class="tab" onclick="window.location.href='index.html#auth-content'">Login</button>
             <button class="tab active">Search</button>
+            <button class="tab" id="MyTutors-tab" onclick = "window.location.href = '/MyTutors'">MyTutors</button>
         </div>
 
         <section id="search-section">
@@ -74,8 +75,8 @@
             { name: "Tomoko Yamada", subject: "Science", rating: 4.9 }
         ];
 
-        function selectTutor(index) {
-            const selected = tutors[index];
+        function selectTutor(tutorJSON) {
+            const selected = JSON.parse(decodeURIComponent(tutorJSON));
             let savedTutors = JSON.parse(localStorage.getItem('selectedTutors')) || [];
 
             const alreadyAdded = savedTutors.some(t => t.name === selected.name && t.subject === selected.subject);
@@ -95,18 +96,18 @@
             const subject = this.subject.value;
 
             const results = tutors.filter(tutor =>
-                tutor.subject === subject &&
+            (subject === "" || tutor.subject === subject) &&
                 (query === "" || tutor.name.toLowerCase().includes(query))
             );
 
             const resultsDiv = document.getElementById('search-results');
             resultsDiv.innerHTML = results.length
-                ? results.map((tutor, index) => `
+                ? results.map((tutor) => `
                     <div class="result">
                         <h3>${tutor.name}</h3>
                         <p>Subject: ${tutor.subject}</p>
                         <p>Rating: ${tutor.rating}</p>
-                        <button onclick="selectTutor(${index})">Select</button>
+                        <button onclick="selectTutor('${encodeURIComponent(JSON.stringify(tutor))}')">Select</button>
                     </div>
                 `).join('')
                 : "<p>No tutors found matching your criteria.</p>";

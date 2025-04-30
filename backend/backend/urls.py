@@ -22,7 +22,7 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from debug_toolbar.toolbar import debug_toolbar_urls
-from orders.views import home, view_all_orders
+# from orders.views import home, view_all_orders
 
 # Schema view for Swagger documentation
 schema_view = get_schema_view(
@@ -46,7 +46,7 @@ urlpatterns = [
     path('api/courses/', include('courses.urls', namespace='courses')),
     path('api/sessions/', include('sessions.urls', namespace='sessions')),
     path('api/payments/', include('payments.urls', namespace='payments')),
-    path('', view_all_orders, name='view_all_orders'),
+    # path('', view_all_orders, name='view_all_orders'),
     
     # Swagger documentation URLs
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),

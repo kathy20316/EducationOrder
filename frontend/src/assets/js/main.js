@@ -1,5 +1,5 @@
 
-    const apiUrl = import.meta.env.DEV ? 'http://127.0.0.1:8000/' : 'https://educationorder-bke8f7exgybnbdg6.centralus-01.azurewebsites.net/'
+const apiUrl = import.meta.env.DEV ? 'http://127.0.0.1:8000/' : 'https://educationorder-bke8f7exgybnbdg6.centralus-01.azurewebsites.net/'
 
 // Toggle chatbot window
 const chatbotHeader = document.getElementById('chatbot-header');

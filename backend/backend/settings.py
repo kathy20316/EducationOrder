@@ -9,9 +9,11 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+from dotenv import load_dotenv
 import os
 from pathlib import Path
+load_dotenv()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -51,6 +53,7 @@ INSTALLED_APPS = [
     'courses',
     'sessions.apps.SessionsConfig',  # Use the app config with the custom label
     'payments',
+    # 'order'
 ]
 
 MIDDLEWARE = [
@@ -62,7 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 INTERNAL_IPS = [
@@ -94,14 +97,16 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+# print()
+# print(os.getenv("DB_HOST"))
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # Use 'mysql' engine
-        'NAME': 'all_orders_db',  # Replace with your actual database name
-        'USER': 'chinguyen',  # Replace with your database username
-        'PASSWORD': 'BuildCoolStuff01!',  # Replace with your database password
-        'HOST': 'django-education-mysql.mysql.database.azure.com',  # Set to the database host, e.g., 'localhost' for local setup, '..azure..' for clouding database
+        'NAME': os.getenv("BD_NAME"),  # Replace with your actual database name
+        'USER': os.getenv("DB_USER_NAME"),  # Replace with your database username
+        'PASSWORD': os.getenv('DB_PASSWORD'),  # Replace with your database password
+        'HOST': os.getenv('DB_HOST'),  # Set to the database host, e.g., 'localhost' for local setup, '..azure..' for clouding database
         'PORT': '3306',  # Set to your MySQL port (default: 3306)
         'OPTIONS': {
             'ssl': {'check_hostname': False, 'verify_cert': False},  # Disable SSL verification

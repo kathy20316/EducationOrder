@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   // add base for githubpage
-  base: 'EducationOrder',
+  base: '',
   root: './src',
   build: {
     outDir: "../dist",

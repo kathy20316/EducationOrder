@@ -46,7 +46,7 @@ urlpatterns = [
     path('api/courses/', include('courses.urls', namespace='courses')),
     path('api/sessions/', include('sessions.urls', namespace='sessions')),
     path('api/payments/', include('payments.urls', namespace='payments')),
-    ath('', view_all_orders, name='view_all_orders')
+    path('', view_all_orders, name='view_all_orders'),
     
     # Swagger documentation URLs
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),

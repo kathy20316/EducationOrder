@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Education Order</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Welcome to Education Order</h1>
+      <p>Please log in or register to continue.</p>
+    </header>
+
+    <div class="tabs auth-tabs">
+      <button class =tab onclick="history.back()">← Go Back</button>
+      <button class="tab active" id="login-tab">Login</button>
+      <button class="tab" id="register-tab">Register</button>
+    </div>
+
+    <div id="auth-section">
+      <div id="login-form" class="auth-form">
+        <form>
+          <input type="email" placeholder="Email" name="email" required />
+          <input type="password" placeholder="Password" name="password" required />
+          <button type="submit">Login</button>
+        </form>
+      </div>
+
+      <div id="register-form" class="auth-form" style="display: none;">
+        <form>
+          <input type="text" placeholder="First Name" name="firstName" required />
+          <input type="text" placeholder="Last Name" name="lastName" required />
+          <input type="email" placeholder="Email" name="email" required />
+          <input type="password" placeholder="Password" name="password" required />
+          <button type="submit">Register</button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2025 Education Order. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    const loginTab = document.getElementById('login-tab');
+    const registerTab = document.getElementById('register-tab');
+    const loginForm = document.getElementById('login-form');
+    const registerForm = document.getElementById('register-form');
+
+    loginTab.addEventListener('click', () => {
+      loginTab.classList.add('active');
+      registerTab.classList.remove('active');
+      loginForm.style.display = 'block';
+      registerForm.style.display = 'none';
+    });
+
+    registerTab.addEventListener('click', () => {
+      registerTab.classList.add('active');
+      loginTab.classList.remove('active');
+      registerForm.style.display = 'block';
+      loginForm.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

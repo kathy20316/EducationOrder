@@ -26,14 +26,14 @@
         <div class="tabs">
             <button class="tab active" id="home-tab">Home</button>
             <button class="tab" id="profile-tab">Profile</button>
-            <button class="tab" id="auth-tab">Login</button>
-            <button class="tab" id="search-tab" onclick = "window.location.href = '/Search.html'">Search</button>
-            <button class="tab" id="MyTutors-tab" onclick = "window.location.href = '/MyTutors.html'">MyTutors</button>
+            <button class="tab" id="auth-tab" onclick = "window.location.href = '/pages/login.html'">Login</button>
+            <button class="tab" id="search-tab" onclick = "window.location.href = '/pages/Search.html'">Search</button>
+            <button class="tab" id="MyTutors-tab" onclick = "window.location.href = '/pages/MyTutors.html'">MyTutors</button>
 
         </div>
 
         <!-- Home page Content Wrapper -->
-        <div id="home-content" style="display: none;">
+        <div id="home-content" >
             <section id="about">
                 <h2>About Education Order</h2>
                 <p>Education Order is a revolutionary platform connecting students with qualified educators for
@@ -275,7 +275,7 @@
             <!-- Profile Content Ends Here -->
         </div> <!-- End Profile Content Wrapper -->
 
-        <div id="auth-content" style="display: block;">
+        <!-- <div id="auth-content" style="display: block;">
             <div class="auth-wrapper">
                 <div class="header">
                     <label>
@@ -312,7 +312,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Footer (Remains the same) -->
         <footer>
@@ -340,7 +340,7 @@
     </div> <!-- End Container -->
 
     <!-- Profile Page Script Encho feature-->
-    <script type="module" src="main.js">
+    <script type="module" src="public/pages/main.js">
 
     </script>
 

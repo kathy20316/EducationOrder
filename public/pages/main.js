@@ -630,7 +630,13 @@ document.querySelector('.registration-content form').addEventListener('submit', 
     })
 
 })
-
+// If the profile page is loaded directly, initialize immediately
+if (window.location.pathname.includes('pages/profile.html')) {
+    document.addEventListener('DOMContentLoaded', () => {
+        if (!profileInitialized) {
+            initializeProfile();
+            profileInitialized = true;
+        }
+    });
+}
 console.log('ok')
-
-

@@ -1062,3 +1062,45 @@ a:hover {
   transform: translateY(0);
   box-shadow: 0 4px 12px rgba(0, 13, 255, 0.3);
 }
+
+.selected-tutor {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-left: 5px solid #4CAF50;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.selected-tutor:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.selected-tutor h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.selected-tutor p {
+  margin: 0.3em 0;
+  color: #555;
+}
+
+.selected-tutor button {
+  margin-top: 0.5em;
+  padding: 0.4em 1em;
+  background-color: #e53935;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.selected-tutor button:hover {
+  background-color: #b71c1c;
+}

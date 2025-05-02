@@ -1,0 +1,181 @@
+Django Tutorial for Beginners – Build Powerful Backends:
+https://www.youtube.com/watch?v=rHux0gMZ3Eg
+
+Connecting to the Database
+https://docs.djangoproject.com/en/5.1/ref/databases/#mysql-notes
+https://www.digitalocean.com/community/tutorials/how-to-create-a-django-app-and-connect-it-to-a-database
+
+How to Connect MySQL database with Django Project
+https://www.youtube.com/watch?v=5g_xIwxLSJk&t=812s
+
+Python Django Full Course for Beginners | Complete All-in-One Tutorial | 3 Hours
+https://www.youtube.com/watch?v=Rp5vd34d-z4
+- Interact with Django ORM at 1:03:46
+- Register models to admin at 1:09:47 (add data using admin site)
+
+
+- Run virtual environment:
+source .venv/bin/activate
+
+- Install pkg-config and MySQL development libraries.
+    + Install Homebrew (if not installed)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    +  Install MySQL & pkg-config
+brew install mysql
+brew services start mysql
+
+``` (To remove) 
+brew services stop mysql
+brew uninstall mysql
+```
+
+brew install pkg-config
+
+CONNECT MYSQL WITH DJANGO PROJECT
+1. Install MySQL Client for Django in venv
+source .venv/bin/activate
+pip install pymysql (https://pypi.org/project/PyMySQL/) - To remove: pip uninstall pymysql
+OR pipenv install pymysql
+pip show pymysql
+
+
+
+pip install mysqlclient
+Then, add this inside the __init__.py in the Django project directory:
+import pymysql
+pymysql.install_as_MySQLdb()
+
+2. Update settings.py
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'education_order_db',  # Your MySQL database name
+        'USER': 'root',                # Your MySQL username
+        'PASSWORD': 'yourpassword',    # Your MySQL password
+        'HOST': 'localhost',           # Change if using a remote DB
+        'PORT': '3306',                # MySQL default port
+        'OPTIONS': {
+            'charset': 'utf8mb4',      # Ensures support for special characters
+        },
+    }
+}
+
+3. Create Database in MySQL
+- Log into MySQL and create the database:
+
+CREATE DATABASE education_order_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+4. Run Migrations
+python manage.py makemigrations
+python manage.py migrate
+
+5. Test Connection
+python manage.py runserver
+
+6. Run the test
+- Create the test in tests.py
+- Run the test
+python manage.py test orders.tests
+
+
+### SEEDING DATA
+- create seed_data.sql
+
+sh> mysql -u root -p
+sql> CREATE DATABASE all_orders_db;
+SHOW DATABASES;
+EXIT
+
+1. Create a Django Model for the Orders Table
+In your Django app's models.py file:
+
+2. Create a Data Migration to Insert Seed Data
+python manage.py makemigrations
+python manage.py makemigrations orders --empty --name seed_data
+- Add the data insertion in the migration file
+- Apply the migrations
+python manage.py migrate
+
+- Make connections between MySQL and Django
+pipenv install mysqlclient
+pipenv install pymysql
+
+- Check the data in MySQL
+sh> mysql -u root -p all_orders_db
+sql> SELECT * FROM orders_order;
+sql> EXIT
+
+
+* Seeding Data in MySQL and Displaying it in MVC Pattern
+Step 1: Seed Data into MySQL
+Option 1: Manual Seeding via SQL Script
+execute  using sh> mysql -u root -p all_orders_db  < orders/seed_data.sql
+Option 2: Seed Data via Django models
+python manage.py makemigrations
+python manage.py migrate
+
+Step 2: Fetch Data from MySQL in the Model
+
+Step 3: Fetch Data in the Controller
+
+
+Step 3: Display Data in the View
+
+Step 4: Implement Pagination in Django
+Step 5: Implement Search in Django
+Step 6: Implement Sorting in Django
+Step 7: Implement Filtering in Django
+Step 8: Implement CRUD Operations in Django
+Step 9: Implement Authentication in Django
+Step 10: Implement Authorization in Django
+Step 11: Implement User Roles in Django
+Step 12: Implement Permissions in Django
+Step 13: Implement User Registration in Django
+Step 14: Implement User Login in Django
+Step 15: Implement User Logout in Django
+Step 16: Implement User Profile in Django
+Step 17: Implement User Profile Update in Django
+Step 18: Implement User Profile Delete in Django
+Step 19: Implement User Profile Picture in Django
+Step 20: Implement User Profile Picture Update in Django
+Step 21: Implement User Profile Picture Delete in Django
+Step 22: Implement User Profile Picture Upload in Django
+Step 23: Implement User Profile Picture Download in Django
+Step 24: Implement User Profile Picture View in Django
+Step 25: Implement User Profile Picture List in Django
+Step 26: Implement User Profile Picture Search in Django
+Step 27: Implement User Profile Picture Sort in Django
+Step 28: Implement User Profile Picture Filter in Django
+Step 29: Implement User Profile Picture Pagination in Django
+Step 30: Implement User Profile Picture CRUD in Django
+Step 31: Implement User Profile Picture Authentication in Django
+Step 32: Implement User Profile Picture Authorization in Django
+Step 33: Implement User Profile Picture Roles in Django
+Step 34: Implement User Profile Picture Permissions in Django
+Step 35: Implement User Profile Picture Registration in Django
+Step 36: Implement User Profile Picture Login in Django
+Step 37: Implement User Profile Picture Logout in Django
+Step 38: Implement User Profile Picture Profile in django
+
+
+Connect Django Backend on Azure to GitHub (CI/CD)
+1. Push Your Django Project to GitHub
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/your-username/your-django-repo.git
+git push -u origin main
+
+2. Create an Azure Web App
+az login
+az webapp up --name your-django-backend-app --runtime "PYTHON|3.10" --location "East US"
+
+3. Set up Deployment from Github
+https://portal.azure.com/#home
+Navigate to your Web App
+    On the left panel, go to Deployment Center
+Choose:
+    Source: GitHub
+    Build provider: GitHub Actions
+    Repository & Branch: Select your repo and branch
+Azure will auto-generate a GitHub Actions workflow for Django.

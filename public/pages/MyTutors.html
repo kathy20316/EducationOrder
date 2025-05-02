@@ -28,6 +28,9 @@
             <div id="my-tutors-list">
                 <p>Loading your selected tutors...</p>
             </div>
+            <div class="pay-button-container">
+                <button class="btn-pay-all" onclick="payAllTutors()">Pay All Tutors</button>
+            </div>
         </section>
 
         <footer>
@@ -38,54 +41,50 @@
 
     <script>
         function loadSelectedTutors() {
-            const savedTutors = JSON.parse(localStorage.getItem('selectedTutors')) || [];
-            const tutorsListDiv = document.getElementById('my-tutors-list');
-
-            if (savedTutors.length === 0) {
-                tutorsListDiv.innerHTML = "<p>You have not selected any tutors yet.</p>";
-                return;
-            }
-
-            tutorsListDiv.innerHTML = savedTutors.map(tutor => `
-                <div class="selected-tutor">
-                    <h3>${tutor.name}</h3>
-                    <p>Subject: ${tutor.subject}</p>
-                    <p>Rating: ${tutor.rating}</p>
-                </div>
-            `).join('');
+          const tutors = JSON.parse(localStorage.getItem('selectedTutors')) || [];
+          const container = document.getElementById('my-tutors-list');
+      
+          if (tutors.length === 0) {
+            container.innerHTML = "<p>You have not selected any tutors yet.</p>";
+            return;
+          }
+      
+          container.innerHTML = tutors.map((t, i) => `
+            <div class="selected-tutor">
+              <h3>${t.name}</h3>
+              <p>Subject: ${t.subject}</p>
+              <p>Rating: ${t.rating}</p>
+              <button onclick="removeTutor(${i})" aria-label="Remove ${t.name}">Remove</button>
+            </div>
+          `).join('');
         }
-
-        window.onload = loadSelectedTutors;
-    </script>
-    <script>
-        function loadSelectedTutors() {
-            const savedTutors = JSON.parse(localStorage.getItem('selectedTutors')) || [];
-            const tutorsListDiv = document.getElementById('my-tutors-list');
-    
-            if (savedTutors.length === 0) {
-                tutorsListDiv.innerHTML = "<p>You have not selected any tutors yet.</p>";
-                return;
-            }
-    
-            tutorsListDiv.innerHTML = savedTutors.map((tutor, index) => `
-                <div class="result">
-                    <h3>${tutor.name}</h3>
-                    <p>Subject: ${tutor.subject}</p>
-                    <p>Rating: ${tutor.rating}</p>
-                    <button onclick="removeTutor(${index})">Remove</button>
-                </div>
-            `).join('');
+      
+        function removeTutor(i) {
+          const tutors = JSON.parse(localStorage.getItem('selectedTutors')) || [];
+          tutors.splice(i, 1);
+          localStorage.setItem('selectedTutors', JSON.stringify(tutors));
+          loadSelectedTutors();
         }
-    
-        function removeTutor(index) {
-            const savedTutors = JSON.parse(localStorage.getItem('selectedTutors')) || [];
-            savedTutors.splice(index, 1);
-            localStorage.setItem('selectedTutors', JSON.stringify(savedTutors));
-            loadSelectedTutors();
+      
+        function payAllTutors() {
+          const tutors = JSON.parse(localStorage.getItem('selectedTutors')) || [];
+          if (tutors.length === 0) {
+            alert("Please select a tutor");
+            return;
+          }
+      
+          // Generate a random payment between $50 and $150 for each tutor
+          const results = tutors.map(t => {
+            const amount = Math.floor(Math.random() * 101) + 50; // 0–100 + 50 → [50,150]
+            return `Paid $${amount} to ${t.name}`;
+          });
+      
+          // Show all payments in one alert
+          alert(results.join("\n"));
         }
-    
-        window.onload = loadSelectedTutors;
-    </script>
+      
+        window.addEventListener('DOMContentLoaded', loadSelectedTutors);
+      </script>
     
 </body>
 </html>

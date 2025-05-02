@@ -1032,3 +1032,33 @@ a:hover {
   background-color: #fff;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
 }
+
+/* Container to center and add spacing */
+.pay-button-container {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+/* Aesthetic “Pay All” button */
+.btn-pay-all {
+  background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 13, 255, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-pay-all:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 13, 255, 0.4);
+}
+
+.btn-pay-all:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(0, 13, 255, 0.3);
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Education Order - Profile</title>
+  <link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<header>
+    <h1>Education Order</h1>
+    <p>Connect with Expert Educators for Personalized Learning!</p>
+</header>
+<body> 
+    <div id="profile-content">
+        <!-- Profile Content Starts Here -->
+        <div id="profile-root"> <!-- Added wrapper for profile content -->
+            <h1>
+                <span>Profile</span>
+                <div class="header-buttons">
+                    <!-- Home button removed -->
+                    <button id="editButton">Edit Profile</button>
+                </div>
+            </h1>
+
+            <!-- Main Content Area (2 Columns) -->
+            <div id="main-content-area">
+
+                <!-- Profile Container (LEFT) -->
+                <div class="profile-container">
+                    <!-- Profile Picture Area -->
+                    <div class="profile-picture-container">
+                        <img src="" alt="Profile Picture" class="profile-picture" id="profilePicture">
+                        <div class="pfp-default-message" id="pfpDefaultMessage">Add PFP</div>
+                        <div class="profile-picture-overlay"></div>
+                    </div>
+                    <input type="file" id="profilePictureInput" accept="image/*">
+
+                    <!-- Rest of profile inputs -->
+                    <div class="input-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" value="YourUsername" disabled>
+                    </div>
+                    <div class="input-group">
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description"
+                            disabled>Write something about yourself...</textarea>
+                    </div>
+                    <div class="input-group">
+                        <label class="subject-interest-label">Subject Interests (Drag & Drop)</label>
+                        <div class="subject-options" id="subjectOptions">
+                            <!-- Subject options -->
+                            <div class="subject-block" draggable="true" data-subject="Mathematics">Mathematics</div>
+                            <div class="subject-block" draggable="true" data-subject="Science">Science</div>
+                            <div class="subject-block" draggable="true" data-subject="History">History</div>
+                            <div class="subject-block" draggable="true" data-subject="Literature">Literature</div>
+                            <div class="subject-block" draggable="true" data-subject="Computer Science">Computer
+                                Science</div>
+                            <div class="subject-block" draggable="true" data-subject="Art">Art</div>
+                            <div class="subject-block" draggable="true" data-subject="Music">Music</div>
+                            <div class="subject-block" draggable="true" data-subject="Economics">Economics</div>
+                            <div class="subject-block" draggable="true" data-subject="Philosophy">Philosophy</div>
+                            <div class="subject-block" draggable="true" data-subject="Psychology">Psychology</div>
+                            <div class="subject-block" draggable="true" data-subject="Sociology">Sociology</div>
+                            <div class="subject-block" draggable="true" data-subject="Political Science">Political
+                                Science</div>
+                            <div class="subject-block" draggable="true" data-subject="Engineering">Engineering</div>
+                            <div class="subject-block" draggable="true" data-subject="Medicine">Medicine</div>
+                            <div class="subject-block" draggable="true" data-subject="Law">Law</div>
+                        </div>
+                        <div class="subject-interest-container" id="subjectInterestContainer">
+                            <!-- Subject blocks will appear here when dragged -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabbed Widgets Container (RIGHT) -->
+                <div id="tabbed-widgets">
+                    <div class="widget-tab-nav" role="tablist" aria-label="Information Widgets">
+                        <button class="widget-tab-button active" role="tab" aria-selected="true"
+                            aria-controls="calendar-content" data-tab-target="#calendar-content">Planner</button>
+                        <button class="widget-tab-button" role="tab" aria-selected="false"
+                            aria-controls="instructors-content"
+                            data-tab-target="#instructors-content">Instructors</button>
+                        <button class="widget-tab-button" role="tab" aria-selected="false"
+                            aria-controls="messages-content" data-tab-target="#messages-content">Messages</button>
+                        <button class="widget-tab-button" role="tab" aria-selected="false"
+                            aria-controls="friends-content" data-tab-target="#friends-content">Friends</button>
+                    </div>
+
+                    <div class="widget-tab-content-area">
+                        <div class="widget-tab-content active" id="calendar-content" role="tabpanel"
+                            aria-labelledby="calendar-tab-button">
+                            <div class="calendar-widget">
+                                <div class="calendar-header">
+                                    <button id="prev-month-btn" class="calendar-nav-button"
+                                        aria-label="Previous month">‹</button>
+                                    <span id="calendar-month-year">Month Year</span>
+                                    <button id="next-month-btn" class="calendar-nav-button"
+                                        aria-label="Next month">›</button>
+                                </div>
+                                <div class="calendar-weekdays" id="calendar-weekdays-container"></div>
+                                <div class="calendar-days" id="calendar-days-grid"></div>
+                            </div>
+                        </div>
+
+                        <div class="widget-tab-content" id="instructors-content" role="tabpanel"
+                            aria-labelledby="instructors-tab-button">
+                            <ul>
+                                <li>Dr. Abdulhak</li>
+                            </ul>
+                        </div>
+
+                        <div class="widget-tab-content" id="messages-content" role="tabpanel"
+                            aria-labelledby="messages-tab-button">
+                            <ul>
+                                <li><span style="color: red; font-weight: bold;">ALERT:</span> SUPER BIG PROJECT MAY
+                                    2!</li>
+                                <li>Message from Dr. Abdulhuk: Prepare thoroughly and ensure your system is ready
+                                    for a smooth demonstration. Let’s make this a successful session!</li>
+                                <li>Site Announcement: Scheduled Maintenance May 3</li>
+                            </ul>
+                        </div>
+
+                        <div class="widget-tab-content" id="friends-content" role="tabpanel"
+                            aria-labelledby="friends-tab-button">
+                            <ul>
+                                <li>Patrick</li>
+                                <li>BubbleBuddy</li>
+                                <li>Squidward</li>
+                                <li>MrKrabs</li>
+                                <li>Sandy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- End Main Content Area -->
+
+            <!-- PFP Modal Section (Keep outside main content area, but inside profile wrapper) -->
+            <div id="modalOverlay"></div>
+            <div id="pfpModal">
+                <button class="modal-close" id="modalCloseButton" aria-label="Close modal">×</button>
+                <div id="modalTitle">Update Profile Picture</div>
+                <div id="modalMessage"></div>
+                <div class="modal-buttons">
+                    <button id="modalChooseFileButton" class="modal-button">Choose File</button>
+                    <button id="modalDragDropButton" class="modal-button">Drag & Drop</button>
+                </div>
+            </div>
+        </div> <!-- End Profile Root -->
+        <!-- Profile Content Ends Here -->
+    </div> <!-- End Profile Content Wrapper -->
+</body>
+<script type="module" src="../main.js">
+
+</script>
+</html>

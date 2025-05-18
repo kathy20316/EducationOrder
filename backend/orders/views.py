@@ -21,8 +21,14 @@ def view_all_orders(request):
     # If the user is authenticated, proceed to fetch and display orders
     orders = Order.objects.all()
     
-    # return render(request, 'orders/all_orders.html', {'orders': orders})
     ## Instead of rendering a template, we will return a simple HttpResponse with JSON data
+
+    # # Option 1: Render a template
+    # return render(request, 'orders/all_orders.html', {'orders': orders})
+
+    # Option 2: Return JSON response
+    # Instead of rendering a template, we will return a simple HttpResponse with JSON data
+
     orders_data = [
         {
             "id": order.orderID,

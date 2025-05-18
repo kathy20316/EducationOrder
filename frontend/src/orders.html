@@ -17,7 +17,7 @@
   <script>
     // Fetch orders and display them on the page
     function fetchOrders() {
-      fetch("http://127.0.0.1:8000/")
+      fetch("educationorder-bke8f7exgybnbdg6.centralus-01.azurewebsites.net/api/orders/")
         .then((response) => response.json())
         .then((data) => {
           const container = document.getElementById("orders-container");

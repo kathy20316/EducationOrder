@@ -53,7 +53,8 @@ INSTALLED_APPS = [
     'courses',
     'sessions.apps.SessionsConfig',  # Use the app config with the custom label
     'payments',
-    # 'order'
+    'orders',   # Added for order management
+    'debug_toolbar',  # Added for debugging
 ]
 
 MIDDLEWARE = [

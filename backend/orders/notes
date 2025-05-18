@@ -38,9 +38,10 @@ pip install pymysql (https://pypi.org/project/PyMySQL/) - To remove: pip uninsta
 OR pipenv install pymysql
 pip show pymysql
 
-
-
 pip install mysqlclient
+
+OR
+# Should not use BOTH mysqlclient and pymysql because of their conflicts
 Then, add this inside the __init__.py in the Django project directory:
 import pymysql
 pymysql.install_as_MySQLdb()
@@ -132,3 +133,123 @@ Step 11: Implement User Roles in Django
 Step 12: Implement Permissions in Django
 Step 13: Implement User Registration in Django
 Step 14: Implement User Login in Django
+Step 15: Implement User Logout in Django
+Step 16: Implement User Profile in Django
+Step 17: Implement User Profile Update in Django
+Step 18: Implement User Profile Delete in Django
+Step 19: Implement User Profile Picture in Django
+Step 20: Implement User Profile Picture Update in Django
+Step 21: Implement User Profile Picture Delete in Django
+Step 22: Implement User Profile Picture Upload in Django
+Step 23: Implement User Profile Picture Download in Django
+Step 24: Implement User Profile Picture View in Django
+Step 25: Implement User Profile Picture List in Django
+Step 26: Implement User Profile Picture Search in Django
+Step 27: Implement User Profile Picture Sort in Django
+Step 28: Implement User Profile Picture Filter in Django
+Step 29: Implement User Profile Picture Pagination in Django
+Step 30: Implement User Profile Picture CRUD in Django
+Step 31: Implement User Profile Picture Authentication in Django
+Step 32: Implement User Profile Picture Authorization in Django
+Step 33: Implement User Profile Picture Roles in Django
+Step 34: Implement User Profile Picture Permissions in Django
+Step 35: Implement User Profile Picture Registration in Django
+Step 36: Implement User Profile Picture Login in Django
+Step 37: Implement User Profile Picture Logout in Django
+Step 38: Implement User Profile Picture Profile in django
+
+
+Connect Django Backend on Azure to GitHub (CI/CD)
+1. Push Your Django Project to GitHub
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/your-username/your-django-repo.git
+git push -u origin main
+
+2. Create an Azure Web App
+az login
+az webapp up --name your-django-backend-app --runtime "PYTHON|3.10" --location "East US"
+
+3. Set up Deployment from Github
+https://portal.azure.com/#home
+Navigate to your Web App
+    On the left panel, go to Deployment Center
+Choose:
+    Source: GitHub
+    Build provider: GitHub Actions
+    Repository & Branch: Select your repo and branch
+Azure will auto-generate a GitHub Actions workflow for Django.
+
+4. Migrate MySQL database to Microsoft Azure cloud service
+https://www.youtube.com/watch?v=uxSDpZnFa18
+- Create a new Azure MySQL database
+- Open MySQL Workbench and migrate
+Database tab -> Migration Wizard
+
+5. Connect a Django project to a MySQL database hosted on Azure, and retrieve data in JSON format,
+From index.html, link to orders.html
+From orders.html, fetch data
+Step 1: Set Up MySQL on Azure
+Step 2: Install MySQL Client for Django
+Step 3: Configure settings.py in Django
+Step 4: Use Django ORM to Query and Convert to JSON (in views.py)
+Step 5: Sends MySQL data as JSON to the frontend.
+Step 6: Wire the View to a URL (in urls.py)
+Step 7: Call the Endpoint from the Frontend (in React or plain JS)
+
+Error: ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+Reason: mysqld_safe (check location by "which mysqld_safe")
+Solution: brew services start mysql
+
+Step 8: Query database (adding)
+MySQL CLI Connection Command
+mysql -h django-education-mysql.mysql.database.azure.com -u chinguyen@ydjango-education-mysql -p -D all_orders_db
+-> ERROR
+OR if SSL is required (Azure often require SSL)
+mysql --host=django-education-mysql.mysql.database.azure.com --user=chinguyen@ydjango-education-mysql --password --ssl-mode=REQUIRED --database=all_orders_db
+-> ERROR
+mysql --host=django-education-mysql.mysql.database.azure.com \
+      --user=chinguyen@django-education-mysql \
+      --password \
+      --database=all_orders_db \
+      --ssl-ca=/path/to/BaltimoreCyberTrustRoot.crt.pem
+-> ERROR
+-> Solution: download SSL cert
+
+Can disable SSL check for testing
+
+Enable SSL:
+- download SSL: 
+    curl -O https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem
+    brew install openssl
+    openssl genpkey -algorithm RSA -out client-key.pem
+    openssl req -new -x509 -key client-key.pem -out client-cert.pem -days 365
+
+Reset MySQL Workbench root password:
+    sql> 
+    USE mysql;
+    ALTER USER 'root'@'localhost' IDENTIFIED BY 'your_new_password';
+    EXIT;
+    brew services restart mysql
+    mysql -u root -p
+
+Check version of mysqlclient and PyMySQL
+    pip list | grep -i 'mysql'
+
+ERROR: an unexpected keyword argument 'ssl_ca'
+https://learn.microsoft.com/en-us/troubleshoot/mem/configmgr/setup-migrate-backup-recovery/connectivity-issues-digicert-global-root-g2-not-installed
+-> TRY:
+'ssl': {
+                'ca': '/path/to/DigiCertGlobalRootG2.crt.pem',  # Path to the CA certificate
+                'cert': '/path/to/client-cert.pem',  # Path to the client certificate
+                'key': '/path/to/client-key.pem',    # Path to the client key
+            },
+
+-> SOLVED
+
+After solving problem, because changed in models, makemigrations and migrate
+ERROR: (migrate)
+
+ERROR: connect to Azure remote database
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password123';FLUSH PRIVILEGES;

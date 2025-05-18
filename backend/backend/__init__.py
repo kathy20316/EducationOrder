@@ -1,3 +1,4 @@
-import pymysql
+# # SHOULD NOT USE PYMYSQL BECAUSE IT WILL CONFLICT WITH MYSQLCLIENT LIBRARY
+# import pymysql
+# pymysql.install_as_MySQLdb()
 
-pymysql.install_as_MySQLdb()

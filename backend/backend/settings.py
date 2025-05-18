@@ -39,6 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Third party apps
+    'rest_framework',
+    'rest_framework.authtoken',  # Added for token authentication
+    'corsheaders',
+    'drf_yasg',  # Added for Swagger API documentation
+    # Custom apps
+    'users',
+    'courses',
+    'sessions.apps.SessionsConfig',  # Use the app config with the custom label
+    'payments',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -90,6 +101,14 @@ DATABASES = {
         'PASSWORD': 'password123',  # Replace with your database password
         'HOST': 'localhost',  # Set to the database host, e.g., 'localhost' for local setup
         'PORT': '3306',  # Set to your MySQL port (default: 3306)
+        'OPTIONS': {
+            # 'ssl': {
+            #     'ca': '/path/to/DigiCertGlobalRootG2.crt.pem',  # Path to the CA certificate
+            #     'cert': '/path/to/client-cert.pem',  # Path to the client certificate
+            #     'key': '/path/to/client-key.pem',    # Path to the client key
+            # },
+            'ssl': None,  # Disable SSL verification for TESTING purposes
+        }
     }
 }
 
